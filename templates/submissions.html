@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}All Submissions{% endblock %}
+
+{% block content %}
+<div class="mt-5">
+  <h2>All Feedback Submissions</h2>
+  {% if entries %}
+    <table class="table table-striped mt-3">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Message</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for e in entries %}
+          <tr>
+            <td>{{ e.time }}</td>
+            <td>{{ e.user }}</td>
+            <td>{{ e.email }}</td>
+            <td>{{ e.message }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No feedback yet.</p>
+  {% endif %}
+</div>
+{% endblock %}
